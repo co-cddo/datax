@@ -7,7 +7,7 @@
 
     <title>Data Exchange Patterns</title>
 
-    <link href="/stylesheets/manifest.css" rel="stylesheet" />
+    <link href="/datax/stylesheets/manifest.css" rel="stylesheet" />
 
     <link rel="canonical" href="co-cddo.github.io/datax/data-exchange-patterns.html">
 
@@ -47,7 +47,7 @@
         <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" aria-label="Show or hide menu">Menu</button>
         <ul id="navigation" class="govuk-header__navigation-list">
             <li class="govuk-header__navigation-item">
-              <a class="govuk-header__link" href="/">Documentation</a>
+              <a class="govuk-header__link" href="/datax/">Documentation</a>
             </li>
         </ul>
       </nav>
@@ -86,22 +86,54 @@
               <nav id="toc" class="js-toc-list toc__list" aria-labelledby="toc-heading" data-module="collapsible-navigation">
                       <ul>
   <li>
-    <a href="/"><span>Data Exchange Guidance</span></a>
+    <a href="/datax/"><span>Data Exchange</span></a>
   </li>
   <li>
-    <a href="/data-exchange-principles.html"><span>Data Exchange Principles</span></a>
+    <a href="/datax/data-exchange-principles.html"><span>Principles</span></a>
   </li>
   <li>
-    <a href="/common-use-cases.html"><span>Common use cases</span></a>
+    <a href="/datax/common-use-cases.html"><span>Use Cases</span></a>
   </li>
   <li>
-    <a href="/governance.html"><span>Governance</span></a>
+    <a href="/datax/governance.html"><span>Governance</span></a>
   </li>
   <li>
-    <a href="/data-exchange-patterns.html"><span>Data Exchange Patterns</span></a>
-  </li>
-  <li>
-    <a href="/dxpatterns/1-Bilateral.html"><span>Bilateral</span></a>
+    <a href="/datax/data-exchange-patterns.html"><span>Patterns</span></a>
+    <ul>
+      <li>
+        <a href="/datax/data-exchange-patterns.html#1-bilateral"><span>1. Bilateral</span></a>
+      </li>
+      <li>
+        <a href="/datax/data-exchange-patterns.html#1a-enhanced-bilateral"><span>1a. Enhanced Bilateral</span></a>
+      </li>
+      <li>
+        <a href="/datax/data-exchange-patterns.html#2-multilateral"><span>2. Multilateral</span></a>
+      </li>
+      <li>
+        <a href="/datax/data-exchange-patterns.html#2a-enhanced-multilateral"><span>2a. Enhanced Multilateral</span></a>
+      </li>
+      <li>
+        <a href="/datax/data-exchange-patterns.html#3-multi-party"><span>3. Multi-party</span></a>
+      </li>
+      <li>
+        <a href="/datax/data-exchange-patterns.html#3a-enhanced-multi-party"><span>3a. Enhanced multi-party</span></a>
+      </li>
+      <li>
+        <a href="/datax/data-exchange-patterns.html#3a-i-enhanced-multi-party-with-common-reference-master-data"><span>3a.i. Enhanced multi-party with common reference / master data</span></a>
+      </li>
+      <li>
+        <a href="/datax/data-exchange-patterns.html#3a-ii-enhanced-multi-party-with-common-reference-master-data-and-persistence"><span>3a.ii. Enhanced multi-party with common reference / master data and persistence</span></a>
+      </li>
+      <li>
+        <a href="/datax/data-exchange-patterns.html#4-platform"><span>4. Platform</span></a>
+      </li>
+      <li>
+        <a href="/datax/data-exchange-patterns.html#4a-enhanced-platform"><span>4a. Enhanced platform</span></a>
+      </li>
+      <li>
+        <a href="/datax/data-exchange-patterns.html#4b-enhanced-platform-with-persistence"><span>4b. Enhanced platform with persistence</span></a>
+      </li>
+    </ul>
   </li>
 </ul>
 
@@ -112,10 +144,112 @@
 
         <div class="app-pane__content toc-open-disabled">
           <main id="content" class="technical-documentation" data-module="anchored-headings">
-            <h1 id="data-exchange-patterns">Data Exchange Patterns</h1>
-<p>Use an API reference page to list your API endpoints, methods, requests, responses and errors. You should auto-generate your API reference rather than writing it by hand, so it’s easier to keep your API reference in sync with your API code.</p>
-<p>Follow the guidance on <a href="https://www.gov.uk/guidance/writing-api-reference-documentation">writing API reference documentation</a>.</p>
-<p>You can <a href="https://tdt-documentation.london.cloudapps.digital/write_docs/add_openapi_spec/#convert-an-openapi-specification-into-documentation">convert an OpenAPI file</a> into an API reference page in your documentation.</p>
+            <h1 id="patterns">Patterns</h1>
+<p>This section sets out the following data exchange patterns and is not an exhaustive summary of all patterns that may exist:</p>
+
+<ul>
+<li><a href="#1-bilateral">1. Bilateral</a>
+
+<ul>
+<li><a href="#1a-enhanced-bilateral">a Enhanced bilateral</a></li>
+</ul></li>
+<li><a href="#2-multilateral">2. Multilateral</a>
+
+<ul>
+<li><a href="#2a-enhanced-multilateral">a. Enhanced multilateral</a></li>
+</ul></li>
+<li><a href="#3-multi-party">3. Multi-Party</a>
+
+<ul>
+<li><a href="#3a-enhanced-multi-party">a. Enhanced multi-party</a>
+
+<ul>
+<li><a href="#3a-i-enhanced-multi-party-with-common-reference-master-data">i.  With Common Reference / Master</a></li>
+<li><a href="#3a-ii-enhanced-multi-party-with-common-reference-master-data-and-persistence">ii. With Common Reference / Master &amp; persistence</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#4-platform">4. Platform (Data Marketplace)</a>
+
+<ul>
+<li><a href="#4a-enhanced-platform">a. Enhanced platform</a>
+
+<ul>
+<li><a href="#4b-enhanced-platform-with-persistence">i. With persistence</a></li>
+</ul></li>
+</ul></li>
+</ul>
+<h2 id="1-bilateral">1. Bilateral</h2>
+<p>Bilateral</p>
+<p><strong>Definition:</strong> one to one data exchange. Each exchange is individually agreed between producer and consumer - including the mechanism of exchange and relevant governance. This can be as simple as a CSV shared over email, or an API built for the purposes of a specific connection.</p>
+<p><strong>Use case:</strong> One organisation requires a data set from another, either for operational or analytical purposes. This may be a one-off or recurring transaction. The data transfer is conceived independently of any other relationships between the organisations and may use existing mechanisms or require new ones.</p>
+<p><strong>Benefits:</strong> The data transfer is precise - only the data needed is included - and low overhead. Easy to set up, and once set up may continue as necessary.</p>
+<p><strong>Issues:</strong> Each exchange has to be set up afresh. No economies of scale. Difficult to scale to provide the same data to multiple parties.</p>
+<p><strong>Data Privacy considerations:</strong> Each of these new, separate data exchanges will always require an in-depth DPIA to be carried out, whereas if it forms part of an existing sharing arrangement the same legal “guardrails” can be inherited, unless the use and purpose changes and it is then specific to that unique bilateral agreement.</p>
+<p><strong>Example:</strong> This can be as simple as a CSV sent over email, or a basic transactional API.</p>
+<h2 id="1a-enhanced-bilateral">1a. Enhanced Bilateral</h2>
+<p><strong>Definition:</strong> one to one data exchange that is enriched with metadata, either from a data catalogue or on a per-source basis. This metadata describes the data with definitions, lineage, ownership and quality attributes, which allows consumers to have increased confidence in the data. The interface is recorded, either in a formal knowledge hub or an ad-hoc basis, allowing better operational management.</p>
+<p><strong>Use case:</strong> As above (1), but with the reassurance of verifiable data ownership and quality management.</p>
+<p><strong>Benefits:</strong> As above (1), but with ongoing management improvements at both the consumer and the producer ends. The producer is more easily able to reproduce data exchanges, the consumer gains confidence in the data. The additional metadata particularly when it covers provenance and lineage, provides an opportunity for assessing operational impact more easily, for example when a piece of legislation/regulation may impact the data landscape or changes to the business model occur.</p>
+<p><strong>Issues:</strong> Added overhead to the set up of data exchanges. Without a central repository of metadata, each connection requires its own management, requiring extra resource. As such, when not centrally managed, less scalable than the unenhanced version.</p>
+<p><strong>Data Privacy considerations:</strong> When a metadata-rich data exchange is set up and this metadata is captured in a catalogue, DPIAs can be run more efficiently at scale in the presumption that PII and sensitive data will have been already appropriately tagged. This provides additional reassurance to both the producer and the consumer that personal data can be identified and traced easily as part of the exchange. Which will also speed up the assessment of whether any new sharing arrangement has the same legal “guardrails” and can be inherited, unless the use and purpose changes and it is then specific to that unique bilateral agreement.</p>
+<p><strong>Example:</strong> Most single use APIs fit this pattern - for example the NHS prescription exemption API provided by DWP</p>
+<h2 id="2-multilateral">2. Multilateral</h2>
+<p><strong>Definition:</strong> one to many data exchange. The data producer provides a consistent interface which multiple parties can access. Each individual connection may require negotiation, or, if sufficiently standardised and not including sensitive information, access can be provided in a self-service way. Whether done individually or automated, each exchange relationship is subject to agreed governance.</p>
+<p><strong>Use case:</strong> Multiple organisations require data from the data producing organisation, whether for operational or analytical purposes. The data needed is the same for each organisation, so a standardised interface is suitable.</p>
+<p><strong>Benefits:</strong> The producing organisation enjoys economies of scale - one interface serves multiple data exchanges. The consuming organisations can benefit from previous example integrations, speeding time to value.</p>
+<p><strong>Issues:</strong> The data provided is of a standardised nature, and so individual consuming organisations may need to transform it to meet their individual needs. Changes to the source data will impact multiple recipients, so the exchange may remain static and be difficult to update. This pattern provides less flexibility on individual data consumers to absorb changes, as when these happen all parties are affected simultaneously and need to be ready for them at the same time. As such these exchanges typically take longer to be agreed and must have a more rigorous governance process to manage changes to interfaces and data flows.</p>
+<p><strong>Data Privacy considerations:</strong> Under the same Multilateral Data Exchange Agreement (MDEA) consumers benefit from the same data sharing arrangement being in place, without having to conduct separate DPIAs, so long as the data is being used and for the purpose accorded under the original MDEA.</p>
+<p><strong>Example:</strong> Data published on organisational websites - eg to be downloaded as a CSV or PDF.</p>
+<h2 id="2a-enhanced-multilateral">2a. Enhanced Multilateral</h2>
+<p><strong>Definition:</strong> one to many data exchange that is enriched with metadata, either from a data catalogue or on a per-source basis. As in the bilateral exchange pattern, this metadata describes the content with definitions, lineage, ownership and quality attributes, which provides increased confidence in the data. The interface is recorded, either in a formal knowledge hub or an ad-hoc basis, allowing better operational management.</p>
+<p><strong>Use case:</strong> As above, but with data governance and data quality guarantees. This allows recipient organisations to better provision services which rely on this data, and provider organisations to better manage external data connections.</p>
+<p><strong>Benefits:</strong> All the above economies of scale, with increased confidence about data quality on the part of the recipient organisations.</p>
+<p><strong>Issues:</strong> Requires increased upfront investment for management. Increased complexity requires ongoing centralised management. Changes to the metadata will also impact all data recipients, which means the initial design becomes correspondingly more important.</p>
+<p><strong>Data Privacy considerations:</strong> As per 2. above, a metadata-rich multilateral exchange provides each consuming party with enhanced ability to identify PII and other sensitive information. This allows all stakeholders to better understand its lineage and provenance relying on the fact that data privacy requirements have been baked into the MDEA and are appropriately catalogued and managed ideally in a common central repository.</p>
+<p><strong>Example:</strong> Most APIs designed to be used by multiple clients fit this pattern - for example the NHS PDS API (for patient details lookup) or the ONS Statistics API (for access to published analytical data).</p>
+<h2 id="3-multi-party">3. Multi-party</h2>
+<p><strong>Definition:</strong> Many to many data exchange - an agreement between multiple organisations to provide data in an agreed format through a standardised interface. Each organisation manages its own data and interfaces, but conforms to the model.</p>
+<p><strong>Use case:</strong> A group of organisations have broadly similar data estates, and can benefit from the aggregation of data, primarily for analytical purposes.</p>
+<p><strong>Benefits:</strong> Interoperability of disparate datasets - the standardised interfaces abstract the underlying complexity of the data and allow organisations to combine datasets.</p>
+<p><strong>Issues:</strong> Difficult to convene without a single organisation taking the lead, with corresponding resource problems. Standardisation is very difficult to implement and enforce. Difficult to negotiate changes to standards to reflect changing data.</p>
+<p><strong>Data Privacy considerations:</strong> similar to 2., there is added complexity as multiple stakeholders need to ensure consistency in the way DP aspects are implemented by all parties to the agreement.</p>
+<p><strong>Example:</strong> The scenario typically employed for data stores used for analytical purposes or research for instance under the auspices of a Data Trust and/or Safe Haven ecosystem, e.g. Labour Market Data Trust. Another example of this pattern is found in a public/private ecosystem USMART around Energy data.</p>
+<h2 id="3a-enhanced-multi-party">3a. Enhanced multi-party</h2>
+<p><strong>Definition:</strong> Many to many data exchange as above but with centrally set and managed standards for metadata - possibly through a central data catalogue. Each organisation manages its own data and interfaces but conforms to metadata models set by a central authority.</p>
+<p><strong>Use case:</strong> A group of organisations with similar aims and broadly similar data estates sets up a central authority with responsibility for data standards and the enforcement of data norms in specific exchanges.</p>
+<p><strong>Benefits:</strong> Interoperability as above, with the reassurance of a central authority mandating standards for exchange, which gives the contributing organisations confidence in the data consumed.</p>
+<p><strong>Issues:</strong> Central authority needs a mandate and levers to enforce standards - resource issues. Just as difficult to negotiate changes as above. Central data catalogue requires extra resource to manage.</p>
+<p><strong>Data Privacy considerations:</strong> same as 2a.</p>
+<p><strong>Example:</strong> Geospatial Commission standards for geospatial data exchange.</p>
+<h2 id="3a-i-enhanced-multi-party-with-common-reference-master-data">3a.i. Enhanced multi-party with common reference / master data</h2>
+<p><strong>Definition:</strong> As 3a, but with centrally set reference or master data - a pattern for producing data which can be followed by the contributing parties. This reference data model is again produced by a central authority.</p>
+<p><strong>Use case:</strong> As above (3a), but with further responsibility for the central authority to produce and maintain reference data models.</p>
+<p><strong>Benefits:</strong> Master or reference data models make it easier for the contributors to provide data in the appropriate format over time.</p>
+<p><strong>Issues:</strong> Central authority needs mandate and levers to enforce the models, and resource to keep them current - in addition to the above issues.</p>
+<p><strong>Example:</strong></p>
+<h2 id="3a-ii-enhanced-multi-party-with-common-reference-master-data-and-persistence">3a.ii. Enhanced multi-party with common reference / master data and persistence</h2>
+<p><strong>Definition:</strong> As 3a and 3a.i, but with a mechanism to persist the data - either a central platform for storage and version control, or an agreed standard for examining historic data through individual interfaces.</p>
+<p><strong>Use case:</strong> As above (3a &amp; 3a.i) but consumers need the reassurance of data history.</p>
+<p><strong>Benefits:</strong> Consumers have access to a history of data exchange that may provide additional insight such as the ability to replay a scenario, derive a cumulative perspective or conduct impact analysis (e.g. ‘what-if’).</p>
+<p><strong>Issues:</strong> As above, with the addition of the need to manage either central storage or further standards to ensure persistence.</p>
+<p><strong>Example:</strong> DI</p>
+<h2 id="4-platform">4. Platform</h2>
+<p><strong>Definition:</strong> A data service which allows multiple organisations to provide data, and multiple recipients to consume it through standardised interfaces. In its simplest form, a service which just allows data to be deposited by one organisation and then consumed by another - for example a cloud storage platform.</p>
+<p><strong>Use case:</strong> A group of organisations need to share non-sensitive data, whether for operational or analytic purposes. Because of time or other constraints, issues of data quality are considered less important.</p>
+<p><strong>Benefits:</strong> Low overhead, high speed data transfer.</p>
+<p><strong>Issues:</strong> Lack of data quality and interoperability.</p>
+<p><strong>Example:</strong> DSI - which allows producing organisations to upload data in various formats for consumption.</p>
+<h2 id="4a-enhanced-platform">4a. Enhanced platform</h2>
+<p><strong>Definition:</strong> A data service where data deposited is subject to quality and standardisation requirements, through agreed metadata standards, as well as reference or master data models. Multiple organisations provide data to agreed specifications, and multiple organisations consume that data. No effort is made to persist the data, other than storage to enable initial consumption (eg caching).</p>
+<p><strong>Use case:</strong> An organisation needs data in an agreed format from multiple sources and sets up a platform with agreed requirements for data ingestion for other organisations to contribute to. The receiving organisation provides guidelines and patterns for the providing partners.</p>
+<p><strong>Benefits:</strong> Standardised and interoperable data from the moment of provision. Providing organisations have clear guidelines for contribution.</p>
+<p><strong>Issues:</strong> Providing organisations need to transform data before it is sent, which increases overhead. Increased upfront investment needed to provision the platform and provide guidelines for contributors. Ongoing investment required to manage partners.</p>
+<p><strong>Example:</strong> Analytics platforms (eg the ONS IDS), which allow data to be added to the platform in defined formats for use by the data consumers.</p>
+<h2 id="4b-enhanced-platform-with-persistence">4b. Enhanced platform with persistence</h2>
+<p><strong>Definition:</strong> A data service as above (4a) that stores data - both for asynchronous use and for historic examination.</p>
+<p><strong>Use case:</strong> An organisation / multiple organisations need data as above, but also need to check that data against previous versions and reassurance that it can be rolled back as necessary.</p>
+<p><strong>Benefits:</strong> Historic data adds dimensions to analytics, as well as acting as a guarantee of data quality (current data sets can be checked against previous ones). Both provider and recipient organisations have reassurance that the data will persist.</p>
+<p><strong>Issues:</strong> Without reliably enforced disposal policies, storage will become unwieldy and expensive very quickly. Long term storage will require huge resource; curated storage will require management.</p>
 
             
           </main>
