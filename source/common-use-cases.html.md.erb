@@ -1,38 +1,16 @@
 ---
-title: Common use cases
+title: Common Use Cases
 weight: 30
 ---
 
-# Common use cases
+# Use Cases
 
-<%= warning_text("You should create one of these pages for each common task your developer users need to complete.") %>
-
-Task-based guidance helps users complete the most common integration tasks, based on the user needs from your research. Most of your documentation should be in this format.
-
-Good examples include:
-
-- [Refund a payment](https://docs.payments.service.gov.uk/refunding_payments/#refund-a-payment) - using a REST API
-- [Deploying apps](https://docs.cloud.service.gov.uk/deploying_apps.html#deploying-apps) - using a native API
-
-Your team's developer, user researcher and technical writer should work together to identify the most common tasks your developer users need to complete.
-
-Each task-based guidance section should:
-
-- help users complete one task
-- have a front-loaded title that starts with a verb
-- include example code for a request and response
-- include descriptions for the request parameters and response fields that relate specifically to the task
-- avoid duplicating basic information about the API - link to your ‘Get started’ section instead
-- link to any tasks that users need to complete afterwards
-
-Task-based guidance should be more detailed than just a description of an endpoint and method. You should guide users through the task by:
-
-- talking directly to your user - use ‘you’ and active verbs
-- using the active voice and plain language
-- describing the task not the technology - tell your users what they need to do, instead of describing how the system works
-- using numbered steps wherever you can
-
-Keep task-based guidance concise. Do not include every possible request or list complete API responses. You can link to your API reference for users who need more detail.
-
-For each task, you should tell users what to do if they have a particular need - for example a common alternate request, they get an error, or something goes wrong in the API flow. Add a front-loaded heading and section for each need. Include these on a page with the task - do not create ‘troubleshooting’ or ‘FAQ’ pages.
+| Use Case | Factors | Type | Examples |
+| -------- | ------- | ---- | -------- |
+| My organisation wishes to make non-personal data openly available for people to use  | <ul><li>Personal data not involved</li><li>Single data source</li></ul> |  [Bilateral](data-exchange-patterns.html#1-bilateral) | <ul><li>[OS Data hub](https://osdatahub.os.uk/)</li><li>data.gov.uk</li></ul> |
+| My organisation needs to make personal data available for use in external services | <ul><li>Personal data involved</li><li>Single data source</li></ul>  |  [Enhanced Bilateral](data-exchange-patterns.html#1a-enhanced-bilateral) | <ul><li>Book a vaccine</li><li>[Check entitlements](https://www.gov.uk/benefits-calculators)</li></ul> |
+| My organisation needs to bring together a large volume of non-personal data from a number of different sources for research purposes | <ul><li>Personal data not involved</li><li>Multiple data sources</li></ul> | [Multilateral](data-exchange-patterns.html#2-multilateral) | <ul><li>[Data.gov.uk](https://data.gov.uk)</li><li>DIT Data Hub</li></ul> | 
+| My organisation needs to regularly bring together a large volume of personal and non-personal data from a number of different sources for operational purposes. | <ul><li>Personal data involved</li><li>Multiple data sources</li><li>Ongoing need for timely and accurate data</li></ul> |  [Enhanced Multilateral](data-exchange-patterns.html#2a-enhanced-multilateral) | <ul><li>Vulnerable People’s Service</li></ul> |
+| As a person eligible to receive a specific government service from one government department, I want information that is held about me by another department to be reused to make the service seamless and more convenient.  | <ul><li>Personal data involved</li><li>Ongoing need timely and accurate data</li></ul> | [Enhanced Multilateral with common reference / master data](data-exchange-patterns.html#3a-i-enhanced-multi-party-with-common-reference-master-data) | <ul><li>One Login</li></ul> |
+| I want public services to be joined up, so irrespective of what service I want to receive I don’t have to repeatedly provide the same information to different parts of government. | <ul><li>Personal data may be involved</li><li>Multiple data sources involved</li><li>Need for the timely and accurate data</li></ul> | [Data Marketplace](data-exchange-patterns.html#4-platform)| <ul><li>[API Catalogue](https://api.gov.uk)</li></ul> |
 
