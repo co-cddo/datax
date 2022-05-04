@@ -1,5 +1,5 @@
 # Host to use for canonical URL generation (without trailing slash)
-host: co-cddo.github.io/datax
+host: https://co-cddo.github.io/datax
 
 # Header-related options
 show_govuk_logo: false
