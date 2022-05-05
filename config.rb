@@ -2,6 +2,5 @@ require 'govuk_tech_docs'
 
 GovukTechDocs.configure(self)
 
-configure :build do
-  config[:http_prefix] = '/datax'
-end
+set :relative_links, true
+activate :relative_assets
